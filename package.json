@@ -1,19 +1,19 @@
 {
-  "name": "{{PACKAGE_NAME}}",
-  "description": "{{SHORT_DESCRIPTION}}",
+  "name": "semantic-release-hex",
+  "description": "semantic-release plugin to publish a hex package",
   "version": "0.0.0",
-  "author": "{{AUTHOR_NAME}} <{{AUTHOR_EMAIL}}> (https://github.com/{{AUTHOR_GITHUB_USERNAME}})",
+  "author": "Pierre Cavin <me@sherlox.io> (https://github.com/sheerlox)",
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "license": "MIT",
-  "homepage": "https://github.com/{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}#readme",
+  "homepage": "https://github.com/talent-ideal/semantic-release-hex#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}.git"
+    "url": "https://github.com/talent-ideal/semantic-release-hex.git"
   },
   "bugs": {
-    "url": "https://github.com/{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}/issues"
+    "url": "https://github.com/talent-ideal/semantic-release-hex/issues"
   },
   "scripts": {
     "test": "NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest",
@@ -42,5 +42,12 @@
   "files": [
     "lib"
   ],
-  "keywords": []
+  "keywords": [
+    "hex",
+    "elixir",
+    "publish",
+    "registry",
+    "semantic-release",
+    "version"
+  ]
 }

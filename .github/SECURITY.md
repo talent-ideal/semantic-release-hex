@@ -4,15 +4,15 @@
 
 **Please do not report security vulnerabilities through public GitHub issues.**
 
-Instead, please report it at <{{SECURITY_POLICY_EMAIL}}>.
+Instead, please report it at <security@sherlox.io>.
 
 Please encrypt your message to us using our PGP key. The key fingerprint is:
 
 ```
-{{SECURITY_POLICY_PGP_FINRGERPRINT}}
+48D0 89FE8 FC01A 4E7E8 8EE96 1156 7DFA BCB9 256E
 ```
 
-The key is available from [{{SECURITY_POLICY_PGP_KEYSERVER}}]({{SECURITY_POLICY_PGP_URL}}).
+The key is available from [keyserver.ubuntu.com](https://keyserver.ubuntu.com/pks/lookup?search=0x48D089FE8FC01A4E7E88EE9611567DFABCB9256E&fingerprint=on&op=index).
 
 Please include the requested information listed below (as much as you can provide) to help us better understand the nature and scope of the possible issue:
 
@@ -31,4 +31,4 @@ We prefer all communications to be in English.
 
 ## Policy
 
-`{{PACKAGE_NAME}}` follows the principle of [Coordinated Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#responsible-or-coordinated-disclosure).
+`semantic-release-hex` follows the principle of [Coordinated Vulnerability Disclosure](https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html#responsible-or-coordinated-disclosure).
