@@ -1,4 +1,4 @@
-# Contributing to {{PACKAGE_NAME}} <!-- omit in toc -->
+# Contributing to semantic-release-hex <!-- omit in toc -->
 
 First off, thanks for taking the time to contribute! ❤️
 
@@ -6,7 +6,7 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 
 > And if you like the project, but just don't have time to contribute, that's fine. There are other easy ways to support the project and show your appreciation, which we would also be very happy about:
 
-> - Join the [Discord community]({{DISCORD_SERVER_URL}})
+> - Join the [Discord community](https://discord.gg/cRB8XRFKzH)
 > - Star the project
 > - Tweet about it
 > - Refer this project in your project's readme
@@ -23,11 +23,11 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 
 ## I Have a Question
 
-> If you want to ask a question, we assume that you have read the available [Documentation](https://github.com/{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}#readme).
+> If you want to ask a question, we assume that you have read the available [Documentation](https://github.com/talent-ideal/semantic-release-hex#readme).
 
-Before you ask a question, it is best to search for existing [Issues](https://github.com/search?q=repo%3A{{REPOSITORY_OWNER}}%2F{{REPOSITORY_NAME}}+&type=issues) that might help you. In case you have found a suitable issue and still need clarification, you can write your question in this issue. It is also advisable to search the internet for answers first.
+Before you ask a question, it is best to search for existing [Issues](https://github.com/search?q=repo%3Atalent-ideal%2Fsemantic-release-hex+&type=issues) that might help you. In case you have found a suitable issue and still need clarification, you can write your question in this issue. It is also advisable to search the internet for answers first.
 
-If you then still feel the need to ask a question and need clarification, we recommend you join the [Discord community]({{DISCORD_SERVER_URL}})! We will take care to answer you as soon as possible.
+If you then still feel the need to ask a question and need clarification, we recommend you join the [Discord community](https://discord.gg/cRB8XRFKzH)! We will take care to answer you as soon as possible.
 
 ## I Want To Contribute
 
@@ -42,8 +42,8 @@ If you then still feel the need to ask a question and need clarification, we rec
 A good bug report shouldn't leave others needing to chase you up for more information. Therefore, we ask you to investigate carefully, collect information and describe the issue in detail in your report. Please complete the following steps in advance to help us fix any potential bug as fast as possible.
 
 - Make sure that you are using the latest version.
-- Determine if your bug is really a bug and not an error on your side e.g. using incompatible environment components/versions (Make sure that you have read the [documentation](https://github.com/{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}#readme). If you are looking for support, you might want to check [this section](#i-have-a-question)).
-- Perform a [search](https://github.com/search?q=repo%3A{{REPOSITORY_OWNER}}%2F{{REPOSITORY_NAME}}+&type=issues) to see if the bug/error has already been reported. If it has, add a comment to the existing issue instead of opening a new one.
+- Determine if your bug is really a bug and not an error on your side e.g. using incompatible environment components/versions (Make sure that you have read the [documentation](https://github.com/talent-ideal/semantic-release-hex#readme). If you are looking for support, you might want to check [this section](#i-have-a-question)).
+- Perform a [search](https://github.com/search?q=repo%3Atalent-ideal%2Fsemantic-release-hex+&type=issues) to see if the bug/error has already been reported. If it has, add a comment to the existing issue instead of opening a new one.
 - Also make sure to search the internet (including Stack Overflow) to see if users outside of the GitHub community have discussed the issue.
 - Collect information about the bug:
   - Stack trace (Traceback)
@@ -56,7 +56,7 @@ A good bug report shouldn't leave others needing to chase you up for more inform
 
 We use GitHub issues to track bugs and errors. If you run into an issue with the project:
 
-- Open a [Bug report issue](https://github.com/{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}/issues/new/choose). (Since we can't be sure at this point whether it is a bug or not, we ask you not to talk about a bug yet and not to label the issue.)
+- Open a [Bug report issue](https://github.com/talent-ideal/semantic-release-hex/issues/new/choose). (Since we can't be sure at this point whether it is a bug or not, we ask you not to talk about a bug yet and not to label the issue.)
 - Explain the behavior you would expect and the actual behavior.
 - Please provide as much context as possible and describe the _reproduction steps_ that someone else can follow to recreate the issue on their own. This usually includes your code. For good bug reports you should isolate the problem and create a reduced test case.
 - Provide the information you collected in the previous section.
@@ -69,24 +69,24 @@ Once it's filed:
 
 ### Suggesting Enhancements
 
-This section guides you through submitting an enhancement suggestion for `{{PACKAGE_NAME}}`, **including completely new features and minor improvements to existing functionality**. Following these guidelines will help maintainers and the community to understand your suggestion and find related suggestions.
+This section guides you through submitting an enhancement suggestion for `semantic-release-hex`, **including completely new features and minor improvements to existing functionality**. Following these guidelines will help maintainers and the community to understand your suggestion and find related suggestions.
 
 #### Before Submitting an Enhancement <!-- omit in toc -->
 
 - Make sure that you are using the latest version.
-- Read the [documentation](https://github.com/{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}#readme) carefully and find out if the functionality is already covered, maybe by an individual configuration.
-- Perform a [search](https://github.com/search?q=repo%3A{{REPOSITORY_OWNER}}%2F{{REPOSITORY_NAME}}+&type=issues) to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
+- Read the [documentation](https://github.com/talent-ideal/semantic-release-hex#readme) carefully and find out if the functionality is already covered, maybe by an individual configuration.
+- Perform a [search](https://github.com/search?q=repo%3Atalent-ideal%2Fsemantic-release-hex+&type=issues) to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 - Find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. Keep in mind that we want features that will be useful to the majority of our users and not just a small subset. If you're just targeting a minority of users, consider writing an add-on/plugin library.
 
 #### How Do I Submit a Good Enhancement Suggestion? <!-- omit in toc -->
 
-Enhancement suggestions are tracked as [GitHub issues](https://github.com/{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}/issues).
+Enhancement suggestions are tracked as [GitHub issues](https://github.com/talent-ideal/semantic-release-hex/issues).
 
-- Open a [Feature request issue](https://github.com/{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}/issues/new/choose).
+- Open a [Feature request issue](https://github.com/talent-ideal/semantic-release-hex/issues/new/choose).
 - Use a **clear and descriptive title** for the issue to identify the suggestion.
 - Provide a **step-by-step description of the suggested enhancement** in as many details as possible.
 - **Describe the current behavior** and **explain which behavior you expected to see instead** and why. At this point you can also tell which alternatives do not work for you.
-- **Explain why this enhancement would be useful** to most `{{PACKAGE_NAME}}` users. You may also want to point out the other projects that solved it better and which could serve as inspiration.
+- **Explain why this enhancement would be useful** to most `semantic-release-hex` users. You may also want to point out the other projects that solved it better and which could serve as inspiration.
 
 ## Working with the code
 
@@ -96,11 +96,11 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/{{REPO
 
 ```bash
 # Clone your fork of the repo into the current directory
-$ git clone git@github.com:<your-username>/{{REPOSITORY_NAME}}.git # or https://github.com/<your-username>/{{REPOSITORY_NAME}}.git for HTTPS
+$ git clone git@github.com:<your-username>/semantic-release-hex.git # or https://github.com/<your-username>/semantic-release-hex.git for HTTPS
 # Navigate to the newly cloned directory
-$ cd {{REPOSITORY_NAME}}
+$ cd semantic-release-hex
 # Assign the original repo to a remote called "upstream"
-$ git remote add upstream git@github.com:{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}.git # or https://github.com/{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}.git for HTTPS
+$ git remote add upstream git@github.com:talent-ideal/semantic-release-hex.git # or https://github.com/talent-ideal/semantic-release-hex.git for HTTPS
 # Install the dependencies
 $ npm install
 ```
@@ -135,7 +135,7 @@ $ npm run test
 
 ## Join The Project Team
 
-This project is looking for help! If you're interested in helping with the project on a regular basis, please reach out to us on the [Discord community]({{DISCORD_SERVER_URL}}).
+This project is looking for help! If you're interested in helping with the project on a regular basis, please reach out to us on the [Discord community](https://discord.gg/cRB8XRFKzH).
 
 ## Attribution <!-- omit in toc -->
 

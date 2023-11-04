@@ -1,5 +1,5 @@
 {
-  "repositoryUrl": "git@github.com:{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}.git",
+  "repositoryUrl": "git@github.com:talent-ideal/semantic-release-hex.git",
   "branches": [
     "main"
   ],

@@ -46,7 +46,7 @@ body:
     attributes:
       label: Your Environment
       description: Include as many relevant details about the environment you experienced the bug in
-      value: "- **`{{PACKAGE_NAME}}` version**:
+      value: "- **`semantic-release-hex` version**:
 
         - **NodeJS version**:
 
