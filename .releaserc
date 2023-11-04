@@ -1,0 +1,36 @@
+{
+  "repositoryUrl": "git@github.com:{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}.git",
+  "branches": [
+    "main"
+  ],
+  "tagFormat": "v${version}",
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "config": "@insurgent/conventional-changelog-preset",
+        "releaseRules": "@insurgent/conventional-changelog-preset/release-rules"
+      }
+    ],
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "config": "@insurgent/conventional-changelog-preset"
+      }
+    ],
+    "@semantic-release/npm",
+    "@semantic-release/changelog",
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "CHANGELOG.md",
+          "package.json",
+          "package-lock.json"
+        ],
+        "message": "chore(release): v${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ],
+    "@semantic-release/github"
+  ]
+}

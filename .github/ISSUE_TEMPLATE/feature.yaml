@@ -1,0 +1,29 @@
+name: Feature/improvement request
+description: Suggest new features or improvements
+labels: ['type:feature']
+body:
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: ⭐ Suggestion
+      description: A summary of what you'd like to see added or changed
+    validations:
+      required: true
+  - type: textarea
+    id: usecases
+    attributes:
+      label: 💻 Use Cases
+      description: |
+        What are possible test cases for your suggested feature?
+        Are you using any workarounds in the meantime?
+    validations:
+      required: false
+  - type: textarea
+    id: relatedproblems
+    attributes:
+      label: ❌ Related Problems
+      description: |
+        Is your Request related to a problem?
+        Think about linking existing Issues here!
+    validations:
+      required: false
