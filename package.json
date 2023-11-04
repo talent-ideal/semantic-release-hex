@@ -1,0 +1,46 @@
+{
+  "name": "{{PACKAGE_NAME}}",
+  "description": "{{SHORT_DESCRIPTION}}",
+  "version": "0.0.0",
+  "author": "{{AUTHOR_NAME}} <{{AUTHOR_EMAIL}}> (https://github.com/{{AUTHOR_GITHUB_USERNAME}})",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "homepage": "https://github.com/{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}.git"
+  },
+  "bugs": {
+    "url": "https://github.com/{{REPOSITORY_OWNER}}/{{REPOSITORY_NAME}}/issues"
+  },
+  "scripts": {
+    "test": "NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest",
+    "test:watch": "npm run test -- --watch",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "lint:fix": "npm run lint:eslint -- --fix && npm run lint:prettier -- --write",
+    "lint:eslint": "eslint . --ext .js",
+    "lint:prettier": "prettier ./**/*.{json,md,yml} --check",
+    "commitlint": "commitlint --edit"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "18.2.0",
+    "@insurgent/commitlint-config": "19.0.0",
+    "@insurgent/conventional-changelog-preset": "8.0.0",
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/git": "10.0.1",
+    "@types/jest": "29.5.7",
+    "eslint": "8.52.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-jest": "27.6.0",
+    "eslint-plugin-prettier": "5.0.1",
+    "husky": "8.0.3",
+    "jest": "29.7.0",
+    "semantic-release": "22.0.7"
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": []
+}
