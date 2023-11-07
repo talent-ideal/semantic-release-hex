@@ -1,7 +1,12 @@
 {
   "repositoryUrl": "git@github.com:talent-ideal/semantic-release-hex.git",
   "branches": [
-    "main"
+    "main",
+    {
+      "name": "dev",
+      "prerelease": "alpha",
+      "channel": "alpha"
+    }
   ],
   "tagFormat": "v${version}",
   "plugins": [
