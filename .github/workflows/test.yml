@@ -3,7 +3,7 @@ name: Test
 on:
   push:
     branches:
-      - renovate/**
+      - ti-renovate/**
   pull_request:
     branches:
       - main
