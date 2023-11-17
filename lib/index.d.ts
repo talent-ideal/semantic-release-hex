@@ -4,7 +4,7 @@
  * @param {*} pluginConfig The semantic-release plugin config
  * @param {*} context The context provided by semantic-release
  */
-export declare function verifyConditions(pluginConfig: any, context: any): void
+export declare function verifyConditions(pluginConfig: any, context: any): Promise<void>
 
 /**
  * Called by semantic-release during the prepare step
@@ -12,4 +12,4 @@ export declare function verifyConditions(pluginConfig: any, context: any): void
  * @param {*} pluginConfig The semantic-release plugin config
  * @param {*} context The context provided by semantic-release
  */
-export declare function prepare(pluginConfig: any, context: any): void
+export declare function prepare(pluginConfig: any, context: any): Promise<void>
