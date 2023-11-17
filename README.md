@@ -10,10 +10,45 @@
 ](https://securityscorecards.dev/viewer/?uri=github.com/talent-ideal/semantic-release-hex)
 [![Discord](https://img.shields.io/discord/1158414767770308648?logo=discord)](https://discord.gg/cRB8XRFKzH)
 
+> **Warning**
+> Publishing to `hex` has not yet been implemented, so this package only bumps the version in `mix.exs` for now.
+
+| Step               | Description                                                                 |
+| ------------------ | --------------------------------------------------------------------------- |
+| `verifyConditions` | Verify the presence of the `mix.exs` file and that the version is parsable. |
+| `prepare`          | Update the version in `mix.exs`.                                            |
+| _`addChannel`_     | _to be implemented (PRs welcome)_                                           |
+| _`publish`_        | _to be implemented (PRs welcome)_                                           |
+
 ## Installation
 
 ```shell
 npm install semantic-release-hex -D
+```
+
+## Usage
+
+Add the plugin to the [**semantic-release** configuration file](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration). (see example below)
+
+### Example
+
+```json
+{
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    [
+      "@semantic-release/git",
+      {
+        "assets": ["CHANGELOG.md", "mix.exs"],
+        "message": "chore(release): v${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ],
+    "@semantic-release/github",
+    "semantic-release-hex"
+  ]
+}
 ```
 
 ## Community
