@@ -15,6 +15,15 @@ permissions:
   contents: read
 
 jobs:
+  # ignore the push event trigger if a PR is open for the current branch
+  prevent-duplicate-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: insurgent-lab/is-in-pr-action@v0.1.3
+        id: isInPR
+    outputs:
+      should-run: ${{ steps.isInPR.outputs.result == 'false' }}
+
   test_matrix:
     strategy:
       matrix:
@@ -22,6 +31,9 @@ jobs:
 
     runs-on: ubuntu-latest
     timeout-minutes: 5
+
+    needs: prevent-duplicate-checks
+    if: ${{ needs.prevent-duplicate-checks.outputs.should-run == 'true' }}
 
     steps:
       - name: Harden Runner
@@ -67,7 +79,9 @@ jobs:
   sonarcloud:
     runs-on: ubuntu-latest
     needs:
+      - prevent-duplicate-checks
       - test_matrix
+    if: ${{ needs.prevent-duplicate-checks.outputs.should-run == 'true' }}
     permissions:
       pull-requests: read
     steps:
