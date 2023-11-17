@@ -51,6 +51,30 @@ Add the plugin to the [**semantic-release** configuration file](https://github.c
 }
 ```
 
+## Supported version formats
+
+### Regular
+
+```elixir
+  def project do
+    [
+      version: "0.4.2",
+    ]
+  end
+```
+
+### Module attribute
+
+```elixir
+  @version "0.4.2"
+
+  def project do
+    [
+      version: @version,
+    ]
+  end
+```
+
 ## Community
 
 Join the [Discord server](https://discord.gg/cRB8XRFKzH)! Here you can discuss issues and get help in a more casual forum than GitHub.
