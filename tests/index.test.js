@@ -1,13 +1,17 @@
-import { prepare, verifyConditions } from "../lib/index";
-
 describe("verifyConditions", () => {
-  it("should be defined", () => {
-    expect(verifyConditions).toBeDefined();
-  });
+  it.todo("should return SemanticReleaseError if mix.exs is missing");
+
+  it.todo(
+    "should return SemanticReleaseError if there is no version defined in mix.exs",
+  );
+
+  it.todo(
+    "should return SemanticReleaseError if the version defined in mix.exs is not parseable",
+  );
 });
 
 describe("prepare", () => {
-  it("should be defined", () => {
-    expect(prepare).toBeDefined();
-  });
+  it.todo("should update mix.exs");
+
+  it.todo("should preserve indentation and newline");
 });
