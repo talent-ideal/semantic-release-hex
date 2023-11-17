@@ -22,7 +22,7 @@ jobs:
       - uses: insurgent-lab/is-in-pr-action@v0.1.3
         id: isInPR
     outputs:
-      should-run: ${{ steps.isInPR.outputs.result == 'false' }}
+      should-run: ${{ !(steps.isInPR.outputs.result == 'true' && github.event_name == 'push') }}
 
   test_matrix:
     strategy:
