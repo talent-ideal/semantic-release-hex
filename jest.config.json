@@ -1,5 +1,6 @@
 {
   "collectCoverage": true,
+  "collectCoverageFrom": ["lib/**/*.js"],
   "coverageThreshold": {
     "global": {
       "statements": 100,

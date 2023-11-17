@@ -24,6 +24,9 @@
     "lint:prettier": "prettier ./**/*.{json,md,yml} --check",
     "commitlint": "commitlint --edit"
   },
+  "dependencies": {
+    "@semantic-release/error": "^4.0.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "18.4.1",
     "@insurgent/commitlint-config": "19.0.0",
@@ -37,7 +40,8 @@
     "eslint-plugin-prettier": "5.0.1",
     "husky": "8.0.3",
     "jest": "29.7.0",
-    "semantic-release": "22.0.7"
+    "semantic-release": "22.0.7",
+    "tempy": "^3.1.0"
   },
   "engines": {
     "node": ">=16.3.0"
