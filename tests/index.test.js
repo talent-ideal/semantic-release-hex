@@ -1,20 +1,13 @@
-import { add } from "../lib/index";
+import { prepare, verifyConditions } from "../lib/index";
 
-describe("add", () => {
+describe("verifyConditions", () => {
   it("should be defined", () => {
-    expect(add).toBeDefined();
+    expect(verifyConditions).toBeDefined();
   });
+});
 
-  it("should sum up two numbers", () => {
-    expect(add(42, 42)).toBe(84);
-  });
-
-  it("should sum up a list of numbers", () => {
-    expect(add([42, 42])).toBe(84);
-  });
-
-  it("should throw for invalid inputs", () => {
-    expect(() => add()).toThrow("Invalid input");
-    expect(() => add(42)).toThrow("Invalid input");
+describe("prepare", () => {
+  it("should be defined", () => {
+    expect(prepare).toBeDefined();
   });
 });

@@ -1,16 +1,15 @@
 /**
- * Sums up two numbers.
- *
- * @param {number} a The first number to add.
- * @param {number} b The second number to add.
- * @returns {number} The resulting sum of the two numbers.
+ * Called by semantic-release during the verification step
+ * 
+ * @param {*} pluginConfig The semantic-release plugin config
+ * @param {*} context The context provided by semantic-release
  */
-export declare function add(a: number, b: number): number
+export declare function verifyConditions(pluginConfig: any, context: any): void
 
 /**
- * Sums up a list of numbers.
- *
- * @param {number[]} numbers An array of numbers to add.
- * @returns {number} The resulting sum of all the numbers.
+ * Called by semantic-release during the prepare step
+ * 
+ * @param {*} pluginConfig The semantic-release plugin config
+ * @param {*} context The context provided by semantic-release
  */
-export declare function add(numbers: number[]): number
+export declare function prepare(pluginConfig: any, context: any): void
