@@ -47,7 +47,8 @@
     "node": ">=16.3.0"
   },
   "files": [
-    "lib"
+    "lib",
+    "!lib/**/*.spec.js"
   ],
   "keywords": [
     "hex",

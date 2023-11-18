@@ -11,7 +11,7 @@
   "ignorePatterns": ["coverage"],
   "overrides": [
     {
-      "files": ["tests/**/*.js"],
+      "files": ["tests/**/*.js", "lib/**/*.spec.js"],
       "plugins": ["jest"],
       "extends": ["plugin:jest/recommended", "plugin:jest/style"],
       "rules": {

@@ -1,5 +1,11 @@
 {
   "collectCoverage": true,
+  "collectCoverageFrom": [
+    "**/*.{js,jsx}",
+    "!tests/fixtures/**",
+    "!**/node_modules/**",
+    "!**/coverage/**"
+  ],
   "coverageThreshold": {
     "global": {
       "statements": 100,
