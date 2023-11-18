@@ -12,14 +12,11 @@ import { temporaryDirectory } from "tempy";
 /**
  * Creates a temporary folder with a mix.exs file with the specified version
  *
- * @param {string} [version] initial version to set in mix.exs (empty if not provided)
- * @param {boolean} [asAttribute] whether to set the version as a module attribute
+ * @param {string | null} [version] initial version to set in mix.exs (empty if not provided)
+ * @param {boolean | null} [asAttribute] whether to set the version as a module attribute
  * @returns {Project}
  */
 export function createTestProject(version, asAttribute) {
-  if (version && typeof version !== "string")
-    throw new Error("version must be a string");
-
   const cwd = temporaryDirectory();
   const projectPath = path.resolve(cwd, "mix.exs");
   const projectContent = fs

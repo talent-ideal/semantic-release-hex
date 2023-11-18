@@ -1,30 +1,40 @@
-/**
- * @typedef {Object} ReadVersionResult
- * @property {string} version whole SemVer string
- * @property {string} major
- * @property {string} minor
- * @property {string} patch
- * @property {string} prerelease
- * @property {string} metadata
- */
-
 import {
   attributeVersionRegex,
   regularVersionRegex,
 } from "../../lib/helpers/regexs";
 
 /**
- * Matches a SemVer regex and returns it and its subparts
+ * @typedef {Object} ReadVersionResult
+ * @property {string} version complete SemVer string
+ * @property {string} major
+ * @property {string} minor
+ * @property {string} patch
+ * @property {string} prerelease
+ * @property {string} metadata
+ */
+/**
+ * @typedef {Object} ReadVersionNoMatch
+ * @property {undefined} version complete SemVer string
+ * @property {undefined} major
+ * @property {undefined} minor
+ * @property {undefined} patch
+ * @property {undefined} prerelease
+ * @property {undefined} metadata
+ */
+
+/**
+ * Matches a SemVer regex and returns the version and its subparts
  *
  * @param {string} content mix.exs content
- * @param {boolean} [asAttribute] whether to set the version as a module attribute
+ * @param {boolean | null} [asAttribute] whether to set the version as a module attribute
  * @returns {ReadVersionResult}
  */
 export function readProjectVersion(content, asAttribute) {
   const regex = asAttribute ? attributeVersionRegex : regularVersionRegex;
 
-  const [, version, major, minor, patch, prerelease, metadata] =
-    RegExp(regex).exec(content);
+  const match = RegExp(regex).exec(content);
+
+  const [, version, major, minor, patch, prerelease, metadata] = match ?? [];
 
   return { version, major, minor, patch, prerelease, metadata };
 }

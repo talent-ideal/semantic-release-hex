@@ -4,6 +4,16 @@ import { verifyConditions } from "../lib";
 import { createTestProject } from "./helpers/create-test-project";
 
 describe("verifyConditions", () => {
+  it("should not error in good conditions", async () => {
+    expect.assertions(2);
+
+    for (let asAttribute of [false, true]) {
+      const { cwd } = createTestProject("0.0.0-dev", asAttribute);
+
+      expect(async () => await verifyConditions({}, { cwd })).not.toThrow();
+    }
+  });
+
   it("should return SemanticReleaseError if mix.exs is missing", async () => {
     expect.assertions(2);
 

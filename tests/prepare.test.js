@@ -9,6 +9,25 @@ import { createTestProject } from "./helpers/create-test-project";
 import { readProjectVersion } from "./helpers/read-project-version";
 
 describe("prepare", () => {
+  it("should not error in good conditions", async () => {
+    expect.assertions(2);
+
+    for (let asAttribute of [false, true]) {
+      const { cwd } = createTestProject("0.0.0-dev", asAttribute);
+
+      expect(
+        async () =>
+          await prepare(
+            {},
+            {
+              cwd,
+              nextRelease: { version: "1.0.0" },
+            },
+          ),
+      ).not.toThrow();
+    }
+  });
+
   it("should update version in mix.exs", async () => {
     expect.assertions(4);
 
@@ -28,7 +47,7 @@ describe("prepare", () => {
       expect(packageContent).toMatch(
         asAttribute ? attributeVersionRegex : regularVersionRegex,
       );
-      const { version } = readProjectVersion(packageContent);
+      const { version } = readProjectVersion(packageContent, asAttribute);
       expect(version).toBe("1.0.0");
     }
   });
