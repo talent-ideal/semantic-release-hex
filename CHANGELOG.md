@@ -1,3 +1,10 @@
+## [1.0.0-alpha.4](https://github.com/talent-ideal/semantic-release-hex/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2023-11-18)
+
+
+### 📚 Documentation
+
+* **readme:** add plugin position warning ([ba52d5e](https://github.com/talent-ideal/semantic-release-hex/commit/ba52d5e978eb1df0bcf391aad6c1ddbd67c14df2))
+
 ## [1.0.0-alpha.3](https://github.com/talent-ideal/semantic-release-hex/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2023-11-18)
 
 
