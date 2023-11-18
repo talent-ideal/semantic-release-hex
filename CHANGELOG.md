@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/talent-ideal/semantic-release-hex/compare/v1.0.0...v1.0.1) (2023-11-18)
+
+
+### 🛠 Builds
+
+* **deps:** force patch version as 1.0.0 can't be published ([34019c9](https://github.com/talent-ideal/semantic-release-hex/commit/34019c9e96b3345fbd71d17cb3e7175d54a98bfa))
+
 ## [1.0.0](https://github.com/talent-ideal/semantic-release-hex/compare/v0.0.0...v1.0.0) (2023-11-18)
 
 
