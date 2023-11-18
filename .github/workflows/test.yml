@@ -2,6 +2,10 @@ name: Test
 
 on:
   push:
+    # ignore branches where the release workflow runs as it already calls this one
+    branches-ignore:
+      - main
+      - dev
   pull_request:
     branches:
       - main
