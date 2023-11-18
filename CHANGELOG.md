@@ -1,3 +1,11 @@
+## [1.0.0-alpha.3](https://github.com/talent-ideal/semantic-release-hex/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2023-11-18)
+
+
+### 🐛 Bug Fixes
+
+* fix missing extensions in imports ([89984f5](https://github.com/talent-ideal/semantic-release-hex/commit/89984f580c53d232354eccbc5497dfea8f84f29e))
+* remove extra argument in `readProjectVersion` calls ([f573d5e](https://github.com/talent-ideal/semantic-release-hex/commit/f573d5e02514742bf02d131b2c5de3f2faa88b65))
+
 ## [1.0.0-alpha.2](https://github.com/talent-ideal/semantic-release-hex/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2023-11-18)
 
 
