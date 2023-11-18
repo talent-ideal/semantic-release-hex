@@ -1,3 +1,50 @@
+## [1.0.0-alpha.1](https://github.com/talent-ideal/semantic-release-hex/compare/v0.0.1-alpha.1...v1.0.0-alpha.1) (2023-11-18)
+
+
+### ⚠ Breaking changes
+
+* minimum supported Node version is now 16.3.0
+
+### ✨ Features
+
+* add version regexs ([6710281](https://github.com/talent-ideal/semantic-release-hex/commit/6710281be7e08b8ca419c68055beabc73caf09af))
+* implement verifyConditions step ([a8e0763](https://github.com/talent-ideal/semantic-release-hex/commit/a8e0763e3970b4b032ad996c1e79d20f20054262))
+* replace placeholder content with plugin API ([7f6c932](https://github.com/talent-ideal/semantic-release-hex/commit/7f6c932ddc2d4b5ff1104cc6c50697b2367075fd))
+
+
+### 🐛 Bug Fixes
+
+* set Promise return types in declaration file ([e54865f](https://github.com/talent-ideal/semantic-release-hex/commit/e54865f22ec0ddf3316c129cc714f26ea74f40dd))
+
+
+### 📚 Documentation
+
+* **readme:** add supported version formats section ([9f64d24](https://github.com/talent-ideal/semantic-release-hex/commit/9f64d24ba9a7b8c5dcb6fdd6cbb84d9b022a3d71))
+
+
+### 🚨 Tests
+
+* add failing verifyConditions tests ([321860d](https://github.com/talent-ideal/semantic-release-hex/commit/321860d5b919f2fe77c8c5af69f69c7515d63339))
+* add todo test cases ([1542e5e](https://github.com/talent-ideal/semantic-release-hex/commit/1542e5ec0422aca4825244ff578594387880f687))
+
+
+### ⚙️ Continuous Integrations
+
+* **action:** update insurgent-lab/is-in-pr-action action to v0.1.4 ([#11](https://github.com/talent-ideal/semantic-release-hex/issues/11)) ([89a92d3](https://github.com/talent-ideal/semantic-release-hex/commit/89a92d39367014f3f9ab6a026f3069f181f9503e))
+
+
+### ♻️ Chores
+
+* add mix.exs fixture ([36db0f3](https://github.com/talent-ideal/semantic-release-hex/commit/36db0f344d510797c8f8a1d12dc3328d7c9afc5b))
+* split test suites & remove coverage thresholds ([4f71478](https://github.com/talent-ideal/semantic-release-hex/commit/4f714784d5e62ec8bb74a7942e33704dbe871e6f))
+* use es2020 ([f319be3](https://github.com/talent-ideal/semantic-release-hex/commit/f319be3e3071ee90ba0308e2acce63cfb1db0aa9))
+
+
+### 💎 Styles
+
+* add .prettierignnore ([cdd8162](https://github.com/talent-ideal/semantic-release-hex/commit/cdd8162efd2123eb225a6b4001de7d3348806c85))
+* fix eslint config ([930a64b](https://github.com/talent-ideal/semantic-release-hex/commit/930a64b451af72b055b5014a60f8f0ad9b622a17))
+
 ## [0.0.1-alpha.1](https://github.com/talent-ideal/semantic-release-hex/compare/v0.0.0...v0.0.1-alpha.1) (2023-11-17)
 
 
