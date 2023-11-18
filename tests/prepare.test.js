@@ -6,6 +6,12 @@ import { createTestProject } from "./helpers/create-test-project";
 import { readProjectVersion } from "./helpers/read-project-version";
 
 describe("prepare", () => {
+  const context = { logger: { log: jest.fn() } };
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should not error in good conditions", async () => {
     expect.assertions(2);
 
@@ -17,6 +23,7 @@ describe("prepare", () => {
           await prepare(
             {},
             {
+              ...context,
               cwd,
               nextRelease: { version: "1.0.0" },
             },
@@ -34,6 +41,7 @@ describe("prepare", () => {
       await prepare(
         {},
         {
+          ...context,
           cwd,
           nextRelease: { version: "1.0.0" },
         },
@@ -59,6 +67,7 @@ describe("prepare", () => {
       await prepare(
         {},
         {
+          ...context,
           cwd,
           nextRelease: { version: "1.0.0" },
         },
@@ -72,27 +81,27 @@ describe("prepare", () => {
   });
 
   it("should call the logger with the updated version and cwd", async () => {
-    expect.assertions(2);
+    expect.assertions(4);
 
     for (let asAttribute of [false, true]) {
       const { cwd } = createTestProject("0.0.1-dev", asAttribute);
 
-      const logger = { log: jest.fn() };
-
       await prepare(
         {},
         {
+          ...context,
           cwd,
           nextRelease: { version: "1.0.0" },
-          logger,
         },
       );
 
-      expect(logger.log).toHaveBeenCalledWith(
+      expect(context.logger.log).toHaveBeenCalledTimes(1);
+      expect(context.logger.log).toHaveBeenCalledWith(
         "Write version %s to mix.exs in %s",
         "1.0.0",
         cwd,
       );
+      context.logger.log.mockReset();
     }
   });
 });
