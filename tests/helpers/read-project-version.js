@@ -1,7 +1,4 @@
-import {
-  attributeVersionRegex,
-  regularVersionRegex,
-} from "../../lib/helpers/regexs";
+import { versionRegexesArray } from "../../lib/helpers/regexes";
 
 /**
  * @typedef {Object} ReadVersionResult
@@ -23,16 +20,17 @@ import {
  */
 
 /**
- * Matches a SemVer regex and returns the version and its subparts
+ * Matches version regexes and returns the version and its subparts
  *
  * @param {string} content mix.exs content
- * @param {boolean | null} [asAttribute] whether to set the version as a module attribute
  * @returns {ReadVersionResult}
  */
-export function readProjectVersion(content, asAttribute) {
-  const regex = asAttribute ? attributeVersionRegex : regularVersionRegex;
-
-  const match = RegExp(regex).exec(content);
+export function readProjectVersion(content) {
+  let match;
+  for (let regex of versionRegexesArray) {
+    match = RegExp(regex).exec(content);
+    if (match) break;
+  }
 
   const [, version, major, minor, patch, prerelease, metadata] = match ?? [];
 
