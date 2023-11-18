@@ -28,7 +28,10 @@ npm install semantic-release-hex -D
 
 ## Usage
 
-Add the plugin to the [**semantic-release** configuration file](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration). (see example below)
+Add the plugin to the [**semantic-release** configuration file](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration) (see example below).
+
+> **Warning**
+> Make sure you put the `semantic-release-hex` plugin above `@semantic-release/git` and `@semantic-release/github`, or the updated `mix.exs` file won't be included in the commit/tag/release.
 
 ### Example
 
@@ -38,6 +41,7 @@ Add the plugin to the [**semantic-release** configuration file](https://github.c
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
+    "semantic-release-hex",
     [
       "@semantic-release/git",
       {
@@ -45,8 +49,7 @@ Add the plugin to the [**semantic-release** configuration file](https://github.c
         "message": "chore(release): v${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],
-    "@semantic-release/github",
-    "semantic-release-hex"
+    "@semantic-release/github"
   ]
 }
 ```
