@@ -52,9 +52,3 @@ describe("verifyConditions", () => {
     }
   });
 });
-
-describe("prepare", () => {
-  it.todo("should update mix.exs");
-
-  it.todo("should preserve indentation and newline");
-});
