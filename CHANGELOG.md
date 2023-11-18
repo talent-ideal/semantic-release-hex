@@ -1,3 +1,35 @@
+## [1.0.0-alpha.2](https://github.com/talent-ideal/semantic-release-hex/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2023-11-18)
+
+
+### ✨ Features
+
+* add `replaceVersionInContent` helper ([24126fe](https://github.com/talent-ideal/semantic-release-hex/commit/24126feba635ab4f7c10cbed55fd788debb58578))
+* add whole semver capturing group in regexs ([2c0ab4a](https://github.com/talent-ideal/semantic-release-hex/commit/2c0ab4a839cd996d8651e4e8c2748b7e96808f2e))
+* implement prepare step ([58dd830](https://github.com/talent-ideal/semantic-release-hex/commit/58dd830ef637f03a699fa6c27d0fa09f5947a733))
+
+
+### 📦 Code Refactoring
+
+* add actual semVerRegex and rename old one ([09fe555](https://github.com/talent-ideal/semantic-release-hex/commit/09fe5550c5730defa48b08249882c2c055c81de3))
+* don't rely on individual version regexes ([4ad0261](https://github.com/talent-ideal/semantic-release-hex/commit/4ad02616339bc19b2ed5d371c9b0209afe481438))
+
+
+### 📚 Documentation
+
+* add missing JSDoc ([7600ce0](https://github.com/talent-ideal/semantic-release-hex/commit/7600ce0a0fc873c6bbf748b18132a467c0d9619d))
+
+
+### 🚨 Tests
+
+* add failing prepare tests ([8a68496](https://github.com/talent-ideal/semantic-release-hex/commit/8a684965c7b8814a59e11d3f316cb6c3b1c64f38))
+* re-enable 100% coverage threshold ([3dd2160](https://github.com/talent-ideal/semantic-release-hex/commit/3dd2160232c59b2958f73f5a8d3cc62c27c03afe))
+* remove superfluous semVerRegexLine test case ([9fd0bd9](https://github.com/talent-ideal/semantic-release-hex/commit/9fd0bd9c2e7e9fe78bee5c91b9c59f0f21932edd))
+
+
+### ♻️ Chores
+
+* move regexs test file to src folder ([b6a5e4d](https://github.com/talent-ideal/semantic-release-hex/commit/b6a5e4de8f49ff86a305ef0084b8ccf221fced0c))
+
 ## [1.0.0-alpha.1](https://github.com/talent-ideal/semantic-release-hex/compare/v0.0.1-alpha.1...v1.0.0-alpha.1) (2023-11-18)
 
 
