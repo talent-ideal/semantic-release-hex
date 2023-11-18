@@ -1,4 +1,4 @@
-import { versionRegexesArray } from "../../lib/helpers/regexes";
+import { versionRegexesArray } from "../../lib/helpers/regexes.js";
 
 /**
  * @typedef {Object} ReadVersionResult

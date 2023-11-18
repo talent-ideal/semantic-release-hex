@@ -1,7 +1,7 @@
 import SemanticReleaseError from "@semantic-release/error";
 import fs from "node:fs";
-import { verifyConditions } from "../lib";
-import { createTestProject } from "./helpers/create-test-project";
+import { verifyConditions } from "../lib/index.js";
+import { createTestProject } from "./helpers/create-test-project.js";
 
 describe("verifyConditions", () => {
   it("should not error in good conditions", async () => {

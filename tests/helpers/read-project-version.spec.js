@@ -1,4 +1,4 @@
-import { readProjectVersion } from "./read-project-version";
+import { readProjectVersion } from "./read-project-version.js";
 
 describe("readProjectVersion", () => {
   it("should return version and subparts when match", () => {

@@ -1,9 +1,9 @@
 import { jest } from "@jest/globals";
 import fs from "node:fs";
-import { prepare } from "../lib";
-import { versionRegex } from "../lib/helpers/regexes";
-import { createTestProject } from "./helpers/create-test-project";
-import { readProjectVersion } from "./helpers/read-project-version";
+import { versionRegex } from "../lib/helpers/regexes.js";
+import { prepare } from "../lib/index.js";
+import { createTestProject } from "./helpers/create-test-project.js";
+import { readProjectVersion } from "./helpers/read-project-version.js";
 
 describe("prepare", () => {
   const context = { logger: { log: jest.fn() } };
