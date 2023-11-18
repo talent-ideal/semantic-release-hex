@@ -2,7 +2,7 @@ import { readProjectVersion } from "./read-project-version.js";
 
 describe("readProjectVersion", () => {
   it("should return version and subparts when match", () => {
-    const simple = readProjectVersion('version: "0.0.4"', false);
+    const simple = readProjectVersion('version: "0.0.4"');
     expect(simple.version).toBe("0.0.4");
     expect(simple.major).toBe("0");
     expect(simple.minor).toBe("0");
@@ -10,7 +10,7 @@ describe("readProjectVersion", () => {
     expect(simple.prerelease).toBeUndefined();
     expect(simple.metadata).toBeUndefined();
 
-    const prerelease = readProjectVersion('version: "1.0.0-alpha"', false);
+    const prerelease = readProjectVersion('version: "1.0.0-alpha"');
     expect(prerelease.version).toBe("1.0.0-alpha");
     expect(prerelease.major).toBe("1");
     expect(prerelease.minor).toBe("0");
@@ -18,7 +18,7 @@ describe("readProjectVersion", () => {
     expect(prerelease.prerelease).toBe("alpha");
     expect(prerelease.metadata).toBeUndefined();
 
-    const metadata = readProjectVersion('@version "1.1.2+meta"', true);
+    const metadata = readProjectVersion('@version "1.1.2+meta"');
     expect(metadata.version).toBe("1.1.2+meta");
     expect(metadata.major).toBe("1");
     expect(metadata.minor).toBe("1");
@@ -28,7 +28,6 @@ describe("readProjectVersion", () => {
 
     const preleaseAndMetadata = readProjectVersion(
       '@version "1.1.2-prerelease+meta"',
-      true,
     );
     expect(preleaseAndMetadata.version).toBe("1.1.2-prerelease+meta");
     expect(preleaseAndMetadata.major).toBe("1");
