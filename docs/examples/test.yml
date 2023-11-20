@@ -1,0 +1,74 @@
+name: Test
+
+on:
+  push:
+    # ignore branches where the release workflow runs as it already calls this one
+    branches-ignore:
+      - main
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+env:
+  MIX_ENV: test
+
+jobs:
+  # ignore the push event trigger if a PR is open for the current branch
+  prevent-duplicate-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: insurgent-lab/is-in-pr-action@78ecb5daf15aca198aeb2b6f208aabd06b2cb716 # v0.1.4
+        id: isInPR
+    outputs:
+      should-run: ${{ !(steps.isInPR.outputs.result == 'true' && github.event_name == 'push') }}
+
+  test:
+    name: Build and test
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    needs: prevent-duplicate-checks
+    if: ${{ needs.prevent-duplicate-checks.outputs.should-run == 'true' }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Set up Elixir
+        uses: erlef/setup-beam@61e01a43a562a89bfc54c7f9a378ff67b03e4a21 # v1.16.0
+        with:
+          version-type: strict
+          version-file: .tool-versions
+
+      - name: Restore dependencies cache
+        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        env:
+          cache-name: mix-deps
+        with:
+          path: deps
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-${{ env.cache-name }}-
+
+      - name: Restore build cache
+        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        env:
+          cache-name: mix-build
+        with:
+          path: _build
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-${{ env.cache-name }}-
+
+      - name: Install dependencies
+        run: mix deps.get
+
+      - name: Check formatting
+        run: mix format --check-formatted
+
+      - name: Compile code (without warning) and deps
+        run: mix compile --warnings-as-errors
+
+      - name: Run tests
+        run: mix test

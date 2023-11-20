@@ -13,18 +13,19 @@
 > **Warning**
 > Publishing to `hex` has not yet been implemented, so this package only bumps the version in `mix.exs` for now.
 
-| Step               | Description                                                                 |
-| ------------------ | --------------------------------------------------------------------------- |
-| `verifyConditions` | Verify the presence of the `mix.exs` file and that the version is parsable. |
-| `prepare`          | Update the version in `mix.exs`.                                            |
-| _`addChannel`_     | _to be implemented (PRs welcome)_                                           |
-| _`publish`_        | _to be implemented (PRs welcome)_                                           |
+| Step               | Description                                                                                              |
+| ------------------ | -------------------------------------------------------------------------------------------------------- |
+| `verifyConditions` | Verify the presence of the `mix.exs` file and that the version is parsable.                              |
+| `prepare`          | Update the version in `mix.exs`.                                                                         |
+| _`publish`_        | _[to be implemented](https://github.com/talent-ideal/semantic-release-hex/discussions/14) (PRs welcome)_ |
 
 ## Installation
 
 ```shell
 npm install semantic-release-hex -D
 ```
+
+For a more detailed setup guide, see [**Setting up an existing Elixir project**](./docs/SETTING_UP.md).
 
 ## Usage
 

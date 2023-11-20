@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+    permissions:
+      contents: read
+
+  release:
+    needs: test
+
+    # remove this if you use branch protection
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        # uncomment this if you use branch protection
+        # with:
+        #   persist-credentials: false
+
+      - name: Use Node.js LTS
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
+        with:
+          node-version-file: ".tool-versions"
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Audit npm signatures
+        run: npm audit signatures
+
+      - name: Run Semantic Release
+        run: npx semantic-release
+        env:
+          # replace the secret by CI_GITHUB_TOKEN if you use branch protection
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
