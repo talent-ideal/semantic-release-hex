@@ -1,3 +1,24 @@
+## [1.0.2](https://github.com/talent-ideal/semantic-release-hex/compare/v1.0.1...v1.0.2) (2023-11-20)
+
+
+### 📚 Documentation
+
+* **readme:** add detailed setup guide and workflow examples ([42fe969](https://github.com/talent-ideal/semantic-release-hex/commit/42fe969a3268ebd6b403ee5e331fb7f33cf7a013))
+
+
+### ⚙️ Continuous Integrations
+
+* **action:** don't run tests on branches where the release runs ([6d6478f](https://github.com/talent-ideal/semantic-release-hex/commit/6d6478fc1af41de802a74d65580d94b2f1d53460))
+
+
+### ♻️ Chores
+
+* **deps:** pin dependencies ([7c971ab](https://github.com/talent-ideal/semantic-release-hex/commit/7c971ab6f9e9f39990896a1b88a565c62ced5bd5))
+* **deps:** update dependency [@commitlint](https://github.com/commitlint)/cli to v18.4.2 ([de58440](https://github.com/talent-ideal/semantic-release-hex/commit/de58440f0cfa713e1070c1ea0b91cb8aeae680b1))
+* **deps:** update dependency [@insurgent](https://github.com/insurgent)/conventional-changelog-preset to v9.0.1 ([47b8479](https://github.com/talent-ideal/semantic-release-hex/commit/47b8479d2e97e0418082e3bad01891f07f641d44))
+* **deps:** update dependency eslint to v8.54.0 ([#12](https://github.com/talent-ideal/semantic-release-hex/issues/12)) ([b0718e2](https://github.com/talent-ideal/semantic-release-hex/commit/b0718e26f21f2ac15561ba2f05aeab6ce693e562))
+* exclude spec files from sonar coverage ([4365443](https://github.com/talent-ideal/semantic-release-hex/commit/436544375fc436654daf90cb0efe496a08ebb058))
+
 ## [1.0.1](https://github.com/talent-ideal/semantic-release-hex/compare/v1.0.0...v1.0.1) (2023-11-18)
 
 
