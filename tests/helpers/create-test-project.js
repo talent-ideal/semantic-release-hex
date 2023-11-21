@@ -24,9 +24,12 @@ export function createTestProject(version, asAttribute, suffix) {
   const cwd = temporaryDirectory();
   const projectPath = path.resolve(cwd, "mix.exs");
   const projectContent = fs
-    .readFileSync(`./tests/fixtures/mix${versionType}${fixtureSuffix}.exs`, {
-      encoding: "utf-8",
-    })
+    .readFileSync(
+      `./tests/fixtures/mix/mix${versionType}${fixtureSuffix}.exs`,
+      {
+        encoding: "utf-8",
+      },
+    )
     .replace("{{VERSION}}", version ?? "");
 
   fs.writeFileSync(projectPath, projectContent);
