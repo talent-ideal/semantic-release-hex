@@ -33,7 +33,7 @@ describe("prepare", () => {
   });
 
   it("should update project version in mix.exs", async () => {
-    expect.assertions(4);
+    expect.assertions(6);
 
     for (let asAttribute of [false, true]) {
       const { cwd, path } = createTestProject("0.0.0-dev", asAttribute);
@@ -57,7 +57,7 @@ describe("prepare", () => {
   });
 
   it("should not update the version outside of the project definition in mix.exs", async () => {
-    expect.assertions(4);
+    expect.assertions(10);
 
     for (let asAttribute of [false, true]) {
       const { cwd, path } = createTestProject("0.0.0-dev", asAttribute, "trap");
