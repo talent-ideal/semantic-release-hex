@@ -14,7 +14,7 @@ import { temporaryDirectory } from "tempy";
  *
  * @param {string | null} [version] initial version to set in mix.exs (empty if not provided)
  * @param {boolean | null} [asAttribute] whether to set the version as a module attribute
- * @param {"trap" | null} [suffix] optional mix fixture file suffix
+ * @param {"trap" | "complex-name" | null} [suffix] optional mix fixture file suffix
  * @returns {Project}
  */
 export function createTestProject(version, asAttribute, suffix) {
