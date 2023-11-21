@@ -1,8 +1,9 @@
 import { readProjectVersion } from "./read-project-version.js";
+import { DEF_P_1, DEF_P_2 } from "./test.constants.js";
 
 describe("readProjectVersion", () => {
   it("should return version and subparts when match", () => {
-    const simple = readProjectVersion('version: "0.0.4"');
+    const simple = readProjectVersion(`${DEF_P_1}version: "0.0.4"${DEF_P_2}`);
     expect(simple.version).toBe("0.0.4");
     expect(simple.major).toBe("0");
     expect(simple.minor).toBe("0");
@@ -10,7 +11,9 @@ describe("readProjectVersion", () => {
     expect(simple.prerelease).toBeUndefined();
     expect(simple.metadata).toBeUndefined();
 
-    const prerelease = readProjectVersion('version: "1.0.0-alpha"');
+    const prerelease = readProjectVersion(
+      `${DEF_P_1}version: "1.0.0-alpha"${DEF_P_2}`,
+    );
     expect(prerelease.version).toBe("1.0.0-alpha");
     expect(prerelease.major).toBe("1");
     expect(prerelease.minor).toBe("0");

@@ -32,11 +32,11 @@ describe("prepare", () => {
     }
   });
 
-  it("should update version in mix.exs", async () => {
-    expect.assertions(4);
+  it("should update project version in mix.exs", async () => {
+    expect.assertions(6);
 
     for (let asAttribute of [false, true]) {
-      const { cwd, path } = createTestProject("0.0.1-dev", asAttribute);
+      const { cwd, path } = createTestProject("0.0.0-dev", asAttribute);
 
       await prepare(
         {},
@@ -50,6 +50,35 @@ describe("prepare", () => {
       const packageContent = fs.readFileSync(path, { encoding: "utf-8" });
 
       expect(packageContent).toMatch(versionRegex);
+      expect(packageContent).not.toMatch(/0\.0\.0-dev/);
+      const { version } = readProjectVersion(packageContent);
+      expect(version).toBe("1.0.0");
+    }
+  });
+
+  it("should not update the version outside of the project definition in mix.exs", async () => {
+    expect.assertions(10);
+
+    for (let asAttribute of [false, true]) {
+      const { cwd, path } = createTestProject("0.0.0-dev", asAttribute, "trap");
+
+      await prepare(
+        {},
+        {
+          ...context,
+          cwd,
+          nextRelease: { version: "1.0.0" },
+        },
+      );
+
+      const packageContent = fs.readFileSync(path, { encoding: "utf-8" });
+
+      // should still contain the versions in some_config and some_other_config
+      expect(packageContent).toMatch(/1\.2\.3/);
+      expect(packageContent).toMatch(/4\.5\.6/);
+
+      expect(packageContent).toMatch(versionRegex);
+      expect(packageContent).not.toMatch(/0\.0\.0-dev/);
       const { version } = readProjectVersion(packageContent);
       expect(version).toBe("1.0.0");
     }
@@ -84,7 +113,7 @@ describe("prepare", () => {
     expect.assertions(4);
 
     for (let asAttribute of [false, true]) {
-      const { cwd } = createTestProject("0.0.1-dev", asAttribute);
+      const { cwd } = createTestProject("0.0.0-dev", asAttribute);
 
       await prepare(
         {},

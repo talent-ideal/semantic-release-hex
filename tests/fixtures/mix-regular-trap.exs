@@ -1,6 +1,14 @@
 defmodule HelloWorld.MixProject do
   use Mix.Project
 
+  def some_config do
+    [
+      app: :hello_world,
+      version: "1.2.3",
+      some_config_key: "some string"
+    ]
+  end
+
   def project do
     [
       app: :hello_world,
@@ -8,6 +16,14 @@ defmodule HelloWorld.MixProject do
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps()
+    ]
+  end
+
+  def some_other_config do
+    [
+      app: :hello_world,
+      version: "4.5.6",
+      some_other_config_key: "some other string"
     ]
   end
 
