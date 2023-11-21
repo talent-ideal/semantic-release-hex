@@ -1,4 +1,4 @@
-import { versionRegexesArray } from "../../lib/helpers/regexes.js";
+import { mixVersionRegexesArray } from "../../lib/helpers/regexes/mix.regexes.js";
 
 /**
  * @typedef {Object} ReadVersionResult
@@ -27,7 +27,7 @@ import { versionRegexesArray } from "../../lib/helpers/regexes.js";
  */
 export function readProjectVersion(content) {
   let match;
-  for (let regex of versionRegexesArray) {
+  for (let regex of mixVersionRegexesArray) {
     match = RegExp(regex).exec(content);
     if (match) break;
   }

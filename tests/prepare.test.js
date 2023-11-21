@@ -1,6 +1,6 @@
 import { jest } from "@jest/globals";
 import fs from "node:fs";
-import { versionRegex } from "../lib/helpers/regexes.js";
+import { mixVersionRegex } from "../lib/helpers/regexes/mix.regexes.js";
 import { prepare } from "../lib/index.js";
 import { createTestProject } from "./helpers/create-test-project.js";
 import { readProjectVersion } from "./helpers/read-project-version.js";
@@ -49,7 +49,7 @@ describe("prepare", () => {
 
       const packageContent = fs.readFileSync(path, { encoding: "utf-8" });
 
-      expect(packageContent).toMatch(versionRegex);
+      expect(packageContent).toMatch(mixVersionRegex);
       expect(packageContent).not.toMatch(/0\.0\.0-dev/);
       const { version } = readProjectVersion(packageContent);
       expect(version).toBe("1.0.0");
@@ -77,7 +77,7 @@ describe("prepare", () => {
       expect(packageContent).toMatch(/1\.2\.3/);
       expect(packageContent).toMatch(/4\.5\.6/);
 
-      expect(packageContent).toMatch(versionRegex);
+      expect(packageContent).toMatch(mixVersionRegex);
       expect(packageContent).not.toMatch(/0\.0\.0-dev/);
       const { version } = readProjectVersion(packageContent);
       expect(version).toBe("1.0.0");
