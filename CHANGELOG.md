@@ -1,3 +1,16 @@
+## [1.0.3](https://github.com/talent-ideal/semantic-release-hex/compare/v1.0.2...v1.0.3) (2023-11-21)
+
+
+### 🐛 Bug Fixes
+
+* only match the version in project definition ([#19](https://github.com/talent-ideal/semantic-release-hex/issues/19)) ([47a848d](https://github.com/talent-ideal/semantic-release-hex/commit/47a848d9ee427fd4d38786d73c8baa3fad0aa09a))
+
+
+### ♻️ Chores
+
+* **deps:** lock file maintenance ([93a1193](https://github.com/talent-ideal/semantic-release-hex/commit/93a119332be736eeec26306b874bf65462eb08cd))
+* **deps:** update dependency semantic-release to v22.0.8 ([d7c4e2f](https://github.com/talent-ideal/semantic-release-hex/commit/d7c4e2f234784e1f5b306780ff2f4de5fc065183))
+
 ## [1.0.2](https://github.com/talent-ideal/semantic-release-hex/compare/v1.0.1...v1.0.2) (2023-11-20)
 
 
