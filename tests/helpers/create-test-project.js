@@ -5,8 +5,14 @@ import { temporaryDirectory } from "tempy";
 /**
  * @typedef {Object} Project
  * @property {string} cwd absolute path of the temporary working directory
- * @property {string} path absolute path of the mix.exs file
- * @property {string} content content of the mix.exs file
+ * @property {ProjectFile} mix properties of the mix.exs file
+ * @property {ProjectFile} readme properties of the README.md file
+ */
+
+/**
+ * @typedef {Object} ProjectFile
+ * @property {string} path absolute path of the file
+ * @property {string} content content of the file
  */
 
 /**
@@ -22,6 +28,7 @@ export function createTestProject(version, asAttribute, suffix) {
   const fixtureSuffix = suffix ? `-${suffix}` : "";
 
   const cwd = temporaryDirectory();
+
   const projectPath = path.resolve(cwd, "mix.exs");
   const projectContent = fs
     .readFileSync(
@@ -31,8 +38,19 @@ export function createTestProject(version, asAttribute, suffix) {
       },
     )
     .replace("{{VERSION}}", version ?? "");
-
   fs.writeFileSync(projectPath, projectContent);
 
-  return { cwd, path: projectPath, content: projectContent };
+  const readmePath = path.resolve(cwd, "README.md");
+  const readmeContent = fs
+    .readFileSync(`./tests/fixtures/readme/readme-regular.md`, {
+      encoding: "utf-8",
+    })
+    .replace("{{VERSION}}", version ?? "");
+  fs.writeFileSync(readmePath, readmeContent);
+
+  return {
+    cwd,
+    mix: { path: projectPath, content: projectContent },
+    readme: { path: readmePath, content: readmeContent },
+  };
 }
