@@ -1,4 +1,21 @@
-## [1.0.3](https://github.com/unill-io/semantic-release-hex/compare/v1.0.2...v1.0.3) (2023-11-21)
+## [1.1.0](https://github.com/talent-ideal/semantic-release-hex/compare/v1.0.3...v1.1.0) (2023-11-22)
+
+
+### ✨ Features
+
+* update version requirement in readme ([#22](https://github.com/talent-ideal/semantic-release-hex/issues/22)) ([9d7039a](https://github.com/talent-ideal/semantic-release-hex/commit/9d7039a6e8394ddc9e5d445b2396051516d0e8e8))
+
+
+### ⚙️ Continuous Integrations
+
+* setup release on branch "next" ([241ac9a](https://github.com/talent-ideal/semantic-release-hex/commit/241ac9af3e90af788af28a1e5780a4e1fe76fe34))
+
+
+### ♻️ Chores
+
+* **readme:** add next version badge ([ed0a73c](https://github.com/talent-ideal/semantic-release-hex/commit/ed0a73c867d6fb3ea4e1f1308ba4ecfef4aa9ba7))
+
+## [1.0.3](https://github.com/talent-ideal/semantic-release-hex/compare/v1.0.2...v1.0.3) (2023-11-21)
 
 
 ### 🐛 Bug Fixes
