@@ -20,19 +20,24 @@ import { temporaryDirectory } from "tempy";
  *
  * @param {string | null} [version] initial version to set in mix.exs (empty if not provided)
  * @param {boolean | null} [asAttribute] whether to set the version as a module attribute
- * @param {"trap" | "complex-name" | null} [suffix] optional mix fixture file suffix
+ * @param {"trap" | "complex-name" | null} [mixSuffix] optional mix fixture file suffix
+ * @param {boolean | null} [asGitTag] whether to set the version as a module attribute
  * @returns {Project}
  */
-export function createTestProject(version, asAttribute, suffix) {
+export function createTestProject(version, asAttribute, mixSuffix, asGitTag) {
+  /**
+   * mix.exs
+   */
+
   const versionType = "-" + (asAttribute ? "attribute" : "regular");
-  const fixtureSuffix = suffix ? `-${suffix}` : "";
+  const projectFixtureSuffix = mixSuffix ? `-${mixSuffix}` : "";
 
   const cwd = temporaryDirectory();
 
   const projectPath = path.resolve(cwd, "mix.exs");
   const projectContent = fs
     .readFileSync(
-      `./tests/fixtures/mix/mix${versionType}${fixtureSuffix}.exs`,
+      `./tests/fixtures/mix/mix${versionType}${projectFixtureSuffix}.exs`,
       {
         encoding: "utf-8",
       },
@@ -40,9 +45,15 @@ export function createTestProject(version, asAttribute, suffix) {
     .replace("{{VERSION}}", version ?? "");
   fs.writeFileSync(projectPath, projectContent);
 
+  /**
+   * README.md
+   */
+
+  const dependencyType = "-" + (asGitTag ? "git-tag" : "regular");
+
   const readmePath = path.resolve(cwd, "README.md");
   const readmeContent = fs
-    .readFileSync(`./tests/fixtures/readme/readme-regular.md`, {
+    .readFileSync(`./tests/fixtures/readme/readme${dependencyType}.md`, {
       encoding: "utf-8",
     })
     .replace("{{VERSION}}", version ?? "");

@@ -36,6 +36,10 @@ describe("prepare step", () => {
     }
   });
 
+  /**
+   * mix.exs
+   */
+
   describe("update mix.exs", () => {
     it("should update project version", async () => {
       expect.assertions(6);
@@ -145,15 +149,19 @@ describe("prepare step", () => {
     });
   });
 
+  /**
+   * README.md
+   */
+
   describe("update README.md", () => {
     it("should update project version", async () => {
       expect.assertions(6);
 
-      for (let asAttribute of [false, true]) {
+      for (let asGitTag of [false, true]) {
         const {
           cwd,
           readme: { path },
-        } = createTestProject("0.0.0-dev", asAttribute);
+        } = createTestProject("0.0.0-dev", null, null, asGitTag);
 
         await prepare(
           {},
@@ -182,11 +190,11 @@ describe("prepare step", () => {
     it("should preserve indentation and newline", async () => {
       expect.assertions(2);
 
-      for (let asAttribute of [false, true]) {
+      for (let asGitTag of [false, true]) {
         const {
           cwd,
           readme: { path, content },
-        } = createTestProject("0.0.0-tobereplaced", asAttribute);
+        } = createTestProject("0.0.0-tobereplaced", null, null, asGitTag);
 
         await prepare(
           {},
@@ -207,8 +215,8 @@ describe("prepare step", () => {
     it("should call the logger with the updated version and cwd", async () => {
       expect.assertions(2);
 
-      for (let asAttribute of [false, true]) {
-        const { cwd } = createTestProject("0.0.0-dev", asAttribute);
+      for (let asGitTag of [false, true]) {
+        const { cwd } = createTestProject("0.0.0-dev", null, null, asGitTag);
 
         await prepare(
           {},
