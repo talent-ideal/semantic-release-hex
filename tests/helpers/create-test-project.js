@@ -16,15 +16,22 @@ import { temporaryDirectory } from "tempy";
  */
 
 /**
- * Creates a temporary folder with a mix.exs file with the specified version
+ * Creates a temporary folder with mix.exs & README.md files with the specified version
  *
  * @param {string | null} [version] initial version to set in mix.exs (empty if not provided)
- * @param {boolean | null} [asAttribute] whether to set the version as a module attribute
- * @param {"trap" | "complex-name" | null} [mixSuffix] optional mix fixture file suffix
- * @param {boolean | null} [asGitTag] whether to set the version as a module attribute
+ * @param {boolean | null} [asAttribute] (mix.exs) whether to set the version as a module attribute
+ * @param {"trap" | "complex-name" | null} [mixSuffix] (mix.exs) optional mix fixture file suffix
+ * @param {boolean | null} [asGitTag] (README.md) whether to set the version as a git tag
+ * @param {"empty" | null} [gitOverride] (README.md) override for the filename suffix
  * @returns {Project}
  */
-export function createTestProject(version, asAttribute, mixSuffix, asGitTag) {
+export function createTestProject(
+  version,
+  asAttribute,
+  mixSuffix,
+  asGitTag,
+  gitOverride,
+) {
   /**
    * mix.exs
    */
@@ -49,11 +56,12 @@ export function createTestProject(version, asAttribute, mixSuffix, asGitTag) {
    * README.md
    */
 
-  const dependencyType = "-" + (asGitTag ? "git-tag" : "regular");
+  const dependencyType = asGitTag ? "git-tag" : "regular";
+  const readmeFixtureSuffix = gitOverride ? `${gitOverride}` : dependencyType;
 
   const readmePath = path.resolve(cwd, "README.md");
   const readmeContent = fs
-    .readFileSync(`./tests/fixtures/readme/readme${dependencyType}.md`, {
+    .readFileSync(`./tests/fixtures/readme/readme-${readmeFixtureSuffix}.md`, {
       encoding: "utf-8",
     })
     .replace("{{VERSION}}", version ?? "");

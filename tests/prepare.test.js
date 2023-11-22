@@ -22,17 +22,16 @@ describe("prepare step", () => {
     for (let asAttribute of [false, true]) {
       const { cwd } = createTestProject("0.0.0-dev", asAttribute);
 
-      expect(
-        async () =>
-          await prepare(
-            {},
-            {
-              ...context,
-              cwd,
-              nextRelease: { version: "1.0.0" },
-            },
-          ),
-      ).not.toThrow();
+      await expect(
+        prepare(
+          {},
+          {
+            ...context,
+            cwd,
+            nextRelease: { version: "1.0.0" },
+          },
+        ),
+      ).resolves.not.toThrow();
     }
   });
 
@@ -66,6 +65,28 @@ describe("prepare step", () => {
         const { version } = readVersion(packageContent, mixVersionRegexesArray);
         expect(version).toBe("1.0.0");
       }
+    });
+
+    it("should ignore empty README ang call the logger with the cwd", async () => {
+      expect.assertions(2);
+
+      const { cwd } = createTestProject("0.0.0-dev", null, null, null, "empty");
+
+      await expect(
+        prepare(
+          {},
+          {
+            ...context,
+            cwd,
+            nextRelease: { version: "1.0.0" },
+          },
+        ),
+      ).resolves.not.toThrow();
+
+      expect(context.logger.log).toHaveBeenCalledWith(
+        "No version found in README.md in %s",
+        cwd,
+      );
     });
 
     it("should not update the version outside of the project definition", async () => {

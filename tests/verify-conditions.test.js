@@ -10,7 +10,7 @@ describe("verifyConditions step", () => {
     for (let asAttribute of [false, true]) {
       const { cwd } = createTestProject("0.0.0-dev", asAttribute);
 
-      expect(async () => await verifyConditions({}, { cwd })).not.toThrow();
+      await expect(verifyConditions({}, { cwd })).resolves.not.toThrow();
     }
   });
 
