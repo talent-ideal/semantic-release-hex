@@ -1,9 +1,13 @@
-import { readProjectVersion } from "./read-project-version.js";
-import { DEF_P_1, DEF_P_2 } from "./test.constants.js";
+import { semVerRegex } from "../../lib/helpers/regexes/regexes.js";
+import { readVersion } from "./read-project-version.js";
 
-describe("readProjectVersion", () => {
+const READ_VERSION_TEST_REGEX = new RegExp(
+  ".*BEG\\s(" + semVerRegex.source + ")\\sEND.*",
+);
+
+describe("readVersion", () => {
   it("should return version and subparts when match", () => {
-    const simple = readProjectVersion(`${DEF_P_1}version: "0.0.4"${DEF_P_2}`);
+    const simple = readVersion(`BEG 0.0.4 END`, [READ_VERSION_TEST_REGEX]);
     expect(simple.version).toBe("0.0.4");
     expect(simple.major).toBe("0");
     expect(simple.minor).toBe("0");
@@ -11,9 +15,9 @@ describe("readProjectVersion", () => {
     expect(simple.prerelease).toBeUndefined();
     expect(simple.metadata).toBeUndefined();
 
-    const prerelease = readProjectVersion(
-      `${DEF_P_1}version: "1.0.0-alpha"${DEF_P_2}`,
-    );
+    const prerelease = readVersion(`BEG 1.0.0-alpha END`, [
+      READ_VERSION_TEST_REGEX,
+    ]);
     expect(prerelease.version).toBe("1.0.0-alpha");
     expect(prerelease.major).toBe("1");
     expect(prerelease.minor).toBe("0");
@@ -21,7 +25,9 @@ describe("readProjectVersion", () => {
     expect(prerelease.prerelease).toBe("alpha");
     expect(prerelease.metadata).toBeUndefined();
 
-    const metadata = readProjectVersion('@version "1.1.2+meta"');
+    const metadata = readVersion("BEG 1.1.2+meta END", [
+      READ_VERSION_TEST_REGEX,
+    ]);
     expect(metadata.version).toBe("1.1.2+meta");
     expect(metadata.major).toBe("1");
     expect(metadata.minor).toBe("1");
@@ -29,9 +35,9 @@ describe("readProjectVersion", () => {
     expect(metadata.prerelease).toBeUndefined();
     expect(metadata.metadata).toBe("meta");
 
-    const preleaseAndMetadata = readProjectVersion(
-      '@version "1.1.2-prerelease+meta"',
-    );
+    const preleaseAndMetadata = readVersion("BEG 1.1.2-prerelease+meta END", [
+      READ_VERSION_TEST_REGEX,
+    ]);
     expect(preleaseAndMetadata.version).toBe("1.1.2-prerelease+meta");
     expect(preleaseAndMetadata.major).toBe("1");
     expect(preleaseAndMetadata.minor).toBe("1");
@@ -41,7 +47,7 @@ describe("readProjectVersion", () => {
   });
 
   it("should return undefined version and subparts when no match", () => {
-    const match = readProjectVersion("");
+    const match = readVersion("", [READ_VERSION_TEST_REGEX]);
     expect(match.version).toBeUndefined();
     expect(match.major).toBeUndefined();
     expect(match.minor).toBeUndefined();

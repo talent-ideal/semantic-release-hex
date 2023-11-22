@@ -16,7 +16,7 @@
     "url": "https://github.com/unill-io/semantic-release-hex/issues"
   },
   "scripts": {
-    "test": "NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest",
+    "test": "NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest --verbose",
     "test:watch": "npm run test -- --watch",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "lint:fix": "npm run lint:eslint -- --fix && npm run lint:prettier -- --write",
