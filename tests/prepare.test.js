@@ -1,10 +1,13 @@
 import { jest } from "@jest/globals";
 import fs from "node:fs";
-import { mixVersionRegex } from "../lib/helpers/regexes/mix.regexes.js";
+import {
+  mixVersionRegex,
+  mixVersionRegexesArray,
+} from "../lib/helpers/regexes/mix.regexes.js";
 import { createReadmeVersionRequirementRegexs } from "../lib/helpers/regexes/readme.regexes.js";
 import { prepare } from "../lib/index.js";
 import { createTestProject } from "./helpers/create-test-project.js";
-import { readProjectVersion } from "./helpers/read-project-version.js";
+import { readVersion } from "./helpers/read-project-version.js";
 
 describe("prepare step", () => {
   const context = { logger: { log: jest.fn() } };
@@ -56,7 +59,7 @@ describe("prepare step", () => {
 
         expect(packageContent).toMatch(mixVersionRegex);
         expect(packageContent).not.toMatch(/0\.0\.0-dev/);
-        const { version } = readProjectVersion(packageContent);
+        const { version } = readVersion(packageContent, mixVersionRegexesArray);
         expect(version).toBe("1.0.0");
       }
     });
@@ -87,7 +90,7 @@ describe("prepare step", () => {
 
         expect(packageContent).toMatch(mixVersionRegex);
         expect(packageContent).not.toMatch(/0\.0\.0-dev/);
-        const { version } = readProjectVersion(packageContent);
+        const { version } = readVersion(packageContent, mixVersionRegexesArray);
         expect(version).toBe("1.0.0");
       }
     });
@@ -163,12 +166,15 @@ describe("prepare step", () => {
 
         const packageContent = fs.readFileSync(path, { encoding: "utf-8" });
 
-        const { readmeVersionRegex } =
+        const { readmeVersionRegex, readmeVersionRegexesArray } =
           createReadmeVersionRequirementRegexs("hello_world");
 
         expect(packageContent).toMatch(readmeVersionRegex);
         expect(packageContent).not.toMatch(/0\.0\.0-dev/);
-        const { version } = readProjectVersion(packageContent);
+        const { version } = readVersion(
+          packageContent,
+          readmeVersionRegexesArray,
+        );
         expect(version).toBe("1.0.0");
       }
     });

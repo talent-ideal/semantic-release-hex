@@ -1,5 +1,3 @@
-import { mixVersionRegexesArray } from "../../lib/helpers/regexes/mix.regexes.js";
-
 /**
  * @typedef {Object} ReadVersionResult
  * @property {string} version complete SemVer string
@@ -20,14 +18,15 @@ import { mixVersionRegexesArray } from "../../lib/helpers/regexes/mix.regexes.js
  */
 
 /**
- * Matches version regexes and returns the version and its subparts
+ * Matches SemVer regexes (with the original groups) and returns the version and its subparts
  *
  * @param {string} content mix.exs content
+ * @param {RegExp[]} regexesArray arrays of composed regexes to match the version parts
  * @returns {ReadVersionResult}
  */
-export function readProjectVersion(content) {
+export function readVersion(content, regexesArray) {
   let match;
-  for (let regex of mixVersionRegexesArray) {
+  for (let regex of regexesArray) {
     match = RegExp(regex).exec(content);
     if (match) break;
   }
