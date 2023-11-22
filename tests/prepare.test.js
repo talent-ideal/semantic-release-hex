@@ -1,6 +1,7 @@
 import { jest } from "@jest/globals";
 import fs from "node:fs";
 import { mixVersionRegex } from "../lib/helpers/regexes/mix.regexes.js";
+import { createReadmeVersionRequirementRegexs } from "../lib/helpers/regexes/readme.regexes.js";
 import { prepare } from "../lib/index.js";
 import { createTestProject } from "./helpers/create-test-project.js";
 import { readProjectVersion } from "./helpers/read-project-version.js";
@@ -33,7 +34,7 @@ describe("prepare step", () => {
   });
 
   describe("update mix.exs", () => {
-    it("should update project version in mix.exs", async () => {
+    it("should update project version", async () => {
       expect.assertions(6);
 
       for (let asAttribute of [false, true]) {
@@ -60,7 +61,7 @@ describe("prepare step", () => {
       }
     });
 
-    it("should not update the version outside of the project definition in mix.exs", async () => {
+    it("should not update the version outside of the project definition", async () => {
       expect.assertions(10);
 
       for (let asAttribute of [false, true]) {
@@ -117,7 +118,7 @@ describe("prepare step", () => {
     });
 
     it("should call the logger with the updated version and cwd", async () => {
-      expect.assertions(4);
+      expect.assertions(2);
 
       for (let asAttribute of [false, true]) {
         const { cwd } = createTestProject("0.0.0-dev", asAttribute);
@@ -131,9 +132,89 @@ describe("prepare step", () => {
           },
         );
 
-        expect(context.logger.log).toHaveBeenCalledTimes(1);
         expect(context.logger.log).toHaveBeenCalledWith(
           "Write version %s to mix.exs in %s",
+          "1.0.0",
+          cwd,
+        );
+        context.logger.log.mockReset();
+      }
+    });
+  });
+
+  describe("update README.md", () => {
+    it("should update project version", async () => {
+      expect.assertions(6);
+
+      for (let asAttribute of [false, true]) {
+        const {
+          cwd,
+          readme: { path },
+        } = createTestProject("0.0.0-dev", asAttribute);
+
+        await prepare(
+          {},
+          {
+            ...context,
+            cwd,
+            nextRelease: { version: "1.0.0" },
+          },
+        );
+
+        const packageContent = fs.readFileSync(path, { encoding: "utf-8" });
+
+        const { readmeVersionRegex } =
+          createReadmeVersionRequirementRegexs("hello_world");
+
+        expect(packageContent).toMatch(readmeVersionRegex);
+        expect(packageContent).not.toMatch(/0\.0\.0-dev/);
+        const { version } = readProjectVersion(packageContent);
+        expect(version).toBe("1.0.0");
+      }
+    });
+
+    it("should preserve indentation and newline", async () => {
+      expect.assertions(2);
+
+      for (let asAttribute of [false, true]) {
+        const {
+          cwd,
+          readme: { path, content },
+        } = createTestProject("0.0.0-tobereplaced", asAttribute);
+
+        await prepare(
+          {},
+          {
+            ...context,
+            cwd,
+            nextRelease: { version: "1.0.0" },
+          },
+        );
+
+        const packageContent = fs.readFileSync(path, { encoding: "utf-8" });
+        expect(packageContent).toBe(
+          content.replace("0.0.0-tobereplaced", "1.0.0"),
+        );
+      }
+    });
+
+    it("should call the logger with the updated version and cwd", async () => {
+      expect.assertions(2);
+
+      for (let asAttribute of [false, true]) {
+        const { cwd } = createTestProject("0.0.0-dev", asAttribute);
+
+        await prepare(
+          {},
+          {
+            ...context,
+            cwd,
+            nextRelease: { version: "1.0.0" },
+          },
+        );
+
+        expect(context.logger.log).toHaveBeenCalledWith(
+          "Write version %s to README.md in %s",
           "1.0.0",
           cwd,
         );
