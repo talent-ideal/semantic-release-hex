@@ -2,7 +2,8 @@
 
 > [**semantic-release**](https://github.com/semantic-release/semantic-release) plugin to publish a [hex](https://hex.pm) package
 
-[![Version](https://img.shields.io/npm/v/semantic-release-hex?logo=npm)](https://www.npmjs.com/package/semantic-release-hex)
+[![Latest Version](https://img.shields.io/npm/v/semantic-release-hex/latest.svg?logo=npm)](https://www.npmjs.com/package/semantic-release-hex)
+[![Next Version](https://img.shields.io/npm/v/semantic-release-hex/next.svg?logo=npm)](https://www.npmjs.com/package/semantic-release-hex)
 [![Build](https://img.shields.io/github/actions/workflow/status/talent-ideal/semantic-release-hex/release.yml?logo=github)](https://github.com/talent-ideal/semantic-release-hex/actions/workflows/release.yml)
 [![CodeQL](https://img.shields.io/github/actions/workflow/status/talent-ideal/semantic-release-hex/codeql.yml?logo=github&label=CodeQL)](https://github.com/talent-ideal/semantic-release-hex/actions/workflows/codeql.yml)
 [![Coverage](https://img.shields.io/sonar/coverage/Talent-Ideal_semantic-release-hex?logo=sonarcloud&server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/summary/overall?id=Talent-Ideal_semantic-release-hex)
