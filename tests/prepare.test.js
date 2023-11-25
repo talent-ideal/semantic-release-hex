@@ -153,14 +153,27 @@ describe("prepare step", () => {
    */
 
   describe("update README.md", () => {
+    // eslint-disable-next-line jest/prefer-expect-assertions
     it("should update project version", async () => {
-      expect.assertions(6);
+      const configs = [
+        { asGitTag: false },
+        { asGitTag: true },
+        { override: "no-operator" },
+      ];
 
-      for (let asGitTag of [false, true]) {
+      expect.assertions(configs.length * 3);
+      for (let { asGitTag, override } of configs) {
         const {
           cwd,
           readme: { path },
-        } = createTestProject("0.0.0-dev", null, null, asGitTag);
+        } = createTestProject(
+          "0.0.0-dev",
+          null,
+          null,
+          asGitTag,
+          // @ts-ignore
+          override,
+        );
 
         await prepare(
           {},
