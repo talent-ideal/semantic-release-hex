@@ -1,3 +1,28 @@
+## [1.1.1](https://github.com/talent-ideal/semantic-release-hex/compare/v1.1.0...v1.1.1) (2023-11-26)
+
+
+### 🐛 Bug Fixes
+
+* **readme:** update version even if no operator is present ([#27](https://github.com/talent-ideal/semantic-release-hex/issues/27)) ([0e1aac1](https://github.com/talent-ideal/semantic-release-hex/commit/0e1aac1c86cc698704c7ea720f517262f3f7fab7))
+
+
+### 📚 Documentation
+
+* **readme:** mention version updating in readme ([497016e](https://github.com/talent-ideal/semantic-release-hex/commit/497016e4874c70e5af68e032ac3ffc7b51fd44d9))
+
+
+### ⚙️ Continuous Integrations
+
+* **action:** update github/codeql-action action to v2.22.8 ([#25](https://github.com/talent-ideal/semantic-release-hex/issues/25)) ([4022fb2](https://github.com/talent-ideal/semantic-release-hex/commit/4022fb22f98680de59c93dd7e503f7e45002aac1))
+* **action:** update insurgent-lab/is-in-pr-action action to v0.1.5 ([#26](https://github.com/talent-ideal/semantic-release-hex/issues/26)) ([c9d3c35](https://github.com/talent-ideal/semantic-release-hex/commit/c9d3c35dcb40e5bc9a5532eb14b27ddd6dc5ec1c))
+
+
+### ♻️ Chores
+
+* **deps:** update dependency [@commitlint](https://github.com/commitlint)/cli to v18.4.3 ([7340c0d](https://github.com/talent-ideal/semantic-release-hex/commit/7340c0de80b1160b17faac6c491bae2cf76eeddf))
+* **deps:** update dependency [@types](https://github.com/types)/jest to v29.5.10 ([754d5b5](https://github.com/talent-ideal/semantic-release-hex/commit/754d5b5e7b1a820e2bbdcd31d7eafc23766854fd))
+* **deps:** update dependency [@types](https://github.com/types)/jest to v29.5.9 ([4b6509b](https://github.com/talent-ideal/semantic-release-hex/commit/4b6509b137f5d6750f5fe201521ae13452b41714))
+
 ## [1.1.0](https://github.com/talent-ideal/semantic-release-hex/compare/v1.0.3...v1.1.0) (2023-11-22)
 
 
