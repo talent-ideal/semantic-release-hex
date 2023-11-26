@@ -67,28 +67,6 @@ describe("prepare step", () => {
       }
     });
 
-    it("should ignore empty README ang call the logger with the cwd", async () => {
-      expect.assertions(2);
-
-      const { cwd } = createTestProject("0.0.0-dev", null, null, null, "empty");
-
-      await expect(
-        prepare(
-          {},
-          {
-            ...context,
-            cwd,
-            nextRelease: { version: "1.0.0" },
-          },
-        ),
-      ).resolves.not.toThrow();
-
-      expect(context.logger.log).toHaveBeenCalledWith(
-        "No version found in README.md in %s",
-        cwd,
-      );
-    });
-
     it("should not update the version outside of the project definition", async () => {
       expect.assertions(10);
 
@@ -175,14 +153,27 @@ describe("prepare step", () => {
    */
 
   describe("update README.md", () => {
+    // eslint-disable-next-line jest/prefer-expect-assertions
     it("should update project version", async () => {
-      expect.assertions(6);
+      const configs = [
+        { asGitTag: false },
+        { asGitTag: true },
+        { override: "no-operator" },
+      ];
 
-      for (let asGitTag of [false, true]) {
+      expect.assertions(configs.length * 3);
+      for (let { asGitTag, override } of configs) {
         const {
           cwd,
           readme: { path },
-        } = createTestProject("0.0.0-dev", null, null, asGitTag);
+        } = createTestProject(
+          "0.0.0-dev",
+          null,
+          null,
+          asGitTag,
+          // @ts-ignore
+          override,
+        );
 
         await prepare(
           {},
@@ -193,19 +184,41 @@ describe("prepare step", () => {
           },
         );
 
-        const packageContent = fs.readFileSync(path, { encoding: "utf-8" });
-
+        const readmeContent = fs.readFileSync(path, { encoding: "utf-8" });
+        console.debug(readmeContent);
         const { readmeVersionRegex, readmeVersionRegexesArray } =
           createReadmeVersionRequirementRegexs("hello_world");
 
-        expect(packageContent).toMatch(readmeVersionRegex);
-        expect(packageContent).not.toMatch(/0\.0\.0-dev/);
+        expect(readmeContent).toMatch(readmeVersionRegex);
+        expect(readmeContent).not.toMatch(/0\.0\.0-dev/);
         const { version } = readVersion(
-          packageContent,
+          readmeContent,
           readmeVersionRegexesArray,
         );
         expect(version).toBe("1.0.0");
       }
+    });
+
+    it("should ignore empty README and call the logger with the cwd", async () => {
+      expect.assertions(2);
+
+      const { cwd } = createTestProject("0.0.0-dev", null, null, null, "empty");
+
+      await expect(
+        prepare(
+          {},
+          {
+            ...context,
+            cwd,
+            nextRelease: { version: "1.0.0" },
+          },
+        ),
+      ).resolves.not.toThrow();
+
+      expect(context.logger.log).toHaveBeenCalledWith(
+        "No version found in README.md in %s",
+        cwd,
+      );
     });
 
     it("should preserve indentation and newline", async () => {
@@ -226,8 +239,8 @@ describe("prepare step", () => {
           },
         );
 
-        const packageContent = fs.readFileSync(path, { encoding: "utf-8" });
-        expect(packageContent).toBe(
+        const readmeContent = fs.readFileSync(path, { encoding: "utf-8" });
+        expect(readmeContent).toBe(
           content.replace("0.0.0-tobereplaced", "1.0.0"),
         );
       }

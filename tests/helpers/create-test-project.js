@@ -22,7 +22,7 @@ import { temporaryDirectory } from "tempy";
  * @param {boolean | null} [asAttribute] (mix.exs) whether to set the version as a module attribute
  * @param {"trap" | "complex-name" | null} [mixSuffix] (mix.exs) optional mix fixture file suffix
  * @param {boolean | null} [asGitTag] (README.md) whether to set the version as a git tag
- * @param {"empty" | null} [gitOverride] (README.md) override for the filename suffix
+ * @param {"empty" | "no-operator" | null} [gitOverride] (README.md) override for the filename suffix
  * @returns {Project}
  */
 export function createTestProject(
