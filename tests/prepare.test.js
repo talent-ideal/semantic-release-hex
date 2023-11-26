@@ -184,15 +184,15 @@ describe("prepare step", () => {
           },
         );
 
-        const packageContent = fs.readFileSync(path, { encoding: "utf-8" });
-
+        const readmeContent = fs.readFileSync(path, { encoding: "utf-8" });
+        console.debug(readmeContent);
         const { readmeVersionRegex, readmeVersionRegexesArray } =
           createReadmeVersionRequirementRegexs("hello_world");
 
-        expect(packageContent).toMatch(readmeVersionRegex);
-        expect(packageContent).not.toMatch(/0\.0\.0-dev/);
+        expect(readmeContent).toMatch(readmeVersionRegex);
+        expect(readmeContent).not.toMatch(/0\.0\.0-dev/);
         const { version } = readVersion(
-          packageContent,
+          readmeContent,
           readmeVersionRegexesArray,
         );
         expect(version).toBe("1.0.0");
@@ -239,8 +239,8 @@ describe("prepare step", () => {
           },
         );
 
-        const packageContent = fs.readFileSync(path, { encoding: "utf-8" });
-        expect(packageContent).toBe(
+        const readmeContent = fs.readFileSync(path, { encoding: "utf-8" });
+        expect(readmeContent).toBe(
           content.replace("0.0.0-tobereplaced", "1.0.0"),
         );
       }
