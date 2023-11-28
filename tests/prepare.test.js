@@ -159,6 +159,7 @@ describe("prepare step", () => {
         { asGitTag: false },
         { asGitTag: true },
         { override: "no-operator" },
+        { override: "with-options" },
       ];
 
       expect.assertions(configs.length * 3);
@@ -185,7 +186,6 @@ describe("prepare step", () => {
         );
 
         const readmeContent = fs.readFileSync(path, { encoding: "utf-8" });
-        console.debug(readmeContent);
         const { readmeVersionRegex, readmeVersionRegexesArray } =
           createReadmeVersionRequirementRegexs("hello_world");
 
