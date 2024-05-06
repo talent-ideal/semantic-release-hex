@@ -10,13 +10,13 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:node/recommended",
+    "plugin:n/recommended",
     "plugin:import/recommended",
     "plugin:prettier/recommended"
   ],
   "ignorePatterns": ["coverage"],
   "rules": {
-    "node/file-extension-in-import": ["error", "always"]
+    "n/file-extension-in-import": ["error", "always"]
   },
   "overrides": [
     {
