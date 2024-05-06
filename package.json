@@ -22,7 +22,8 @@
     "lint:fix": "npm run lint:eslint -- --fix && npm run lint:prettier -- --write",
     "lint:eslint": "eslint . --ext .js",
     "lint:prettier": "prettier ./**/*.{json,md,yml} --check",
-    "commitlint": "commitlint --edit"
+    "commitlint": "commitlint --edit",
+    "prepare": "husky"
   },
   "dependencies": {
     "@semantic-release/error": "^4.0.0"
