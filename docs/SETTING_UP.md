@@ -6,6 +6,13 @@
 
 If you are using a different tag format than `v${version}`, see the [`tagFormat` option](https://semantic-release.gitbook.io/semantic-release/usage/configuration#tagformat).
 
+If your current release is an alpha or beta release, you must also add a [Git note](https://git-scm.com/docs/git-notes) so that Semantic Release recognizes it correctly, for example:
+
+```bash
+git notes --ref semantic-release add -f -m '{"channels":["alpha"]}' v1.0.0-alpha.1
+git push origin refs/notes/semantic-release
+```
+
 ## Install Node.js
 
 You'll need Node.js `>=18.17`.
