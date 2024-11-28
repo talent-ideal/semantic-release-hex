@@ -7,13 +7,13 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "license": "MIT",
-  "homepage": "https://github.com/talent-ideal/semantic-release-hex#readme",
+  "homepage": "https://github.com/unill-io/semantic-release-hex#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/talent-ideal/semantic-release-hex.git"
+    "url": "https://github.com/unill-io/semantic-release-hex.git"
   },
   "bugs": {
-    "url": "https://github.com/talent-ideal/semantic-release-hex/issues"
+    "url": "https://github.com/unill-io/semantic-release-hex/issues"
   },
   "scripts": {
     "test": "NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest",
