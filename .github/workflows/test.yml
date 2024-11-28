@@ -50,6 +50,7 @@ jobs:
           allowed-endpoints: >
             api.github.com:443
             github.com:443
+            objects.githubusercontent.com:443
             registry.npmjs.org:443
             storage.googleapis.com:443
             tuf-repo-cdn.sigstore.dev:443
