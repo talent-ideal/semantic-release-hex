@@ -23,7 +23,7 @@
     "lint:eslint": "eslint . --ext .js",
     "lint:prettier": "prettier ./**/*.{json,md,yml} --check",
     "commitlint": "commitlint --edit",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "dependencies": {
     "@semantic-release/error": "^4.0.0"
