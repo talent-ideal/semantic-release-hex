@@ -1,3 +1,22 @@
+## [2.0.0](https://github.com/unill-io/semantic-release-hex/compare/v1.1.1...v2.0.0) (2025-01-09)
+
+### ⚠ Breaking changes
+
+* drop support for Node < 18
+
+### 🚨 Tests
+
+* add readme with options test case ([5e60738](https://github.com/unill-io/semantic-release-hex/commit/5e60738a34e5f0f4a77c1075cae1329d0bdb73e8))
+
+### ⚙️ Continuous Integrations
+
+* **action:** disable husky hooks ([d6c5a40](https://github.com/unill-io/semantic-release-hex/commit/d6c5a40c97ee67157fccc48948f7d62fb0ea319d))
+
+### ♻️ Chores
+
+* **deps:** update node.js to v22 ([884e1d0](https://github.com/unill-io/semantic-release-hex/commit/884e1d043b6e8c6d6fd373aeb27aab0b6570efe1))
+* drop support for Node < 18 ([123fbe4](https://github.com/unill-io/semantic-release-hex/commit/123fbe492cbc5808a0f85ad33e67398381ec5d60))
+
 ## [1.1.1](https://github.com/talent-ideal/semantic-release-hex/compare/v1.1.0...v1.1.1) (2023-11-26)
 
 
