@@ -33,7 +33,7 @@ jobs:
   test_matrix:
     strategy:
       matrix:
-        node-version: [16, 18, 20]
+        node-version: [18, 20, 22]
 
     runs-on: ubuntu-latest
     timeout-minutes: 5
