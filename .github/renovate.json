@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>insurgent-lab/.github//renovate/base",
-    "github>insurgent-lab/.github//renovate/js-ts/js-ts-lib"
+    "github>unill-io/.github//renovate/base",
+    "github>unill-io/.github//renovate/js-ts/js-ts-lib"
   ]
 }
